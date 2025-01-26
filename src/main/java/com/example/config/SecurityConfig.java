@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -21,7 +22,7 @@ import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 public class SecurityConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
@@ -44,9 +45,9 @@ public class SecurityConfig {
                                 , "/swagger-ui/**", "/configuration/ui", "/swagger-resources/**", "/configuration/security", "/user/**")
                         .permitAll()
                         .requestMatchers(AUTH_WISHLIST).permitAll()
-                        .requestMatchers("/tech/addTechnology", "/tech/delete/{id}", "/admin/getAllUsers", "/admin/{id}", "/admin/delete/{id}", "/admin/candidates").hasRole("ADMIN")
-                        .requestMatchers("/emp/addTest", "/result/**").hasRole("EMPLOYER")
-                        .requestMatchers("/candidate/submitTest").hasRole("CANDIDATE")
+//                        .requestMatchers("/tech/addTechnology", "/tech/delete/{id}", "/admin/getAllUsers", "/admin/{id}", "/admin/delete/{id}", "/admin/candidates").hasRole("ADMIN")
+//                        .requestMatchers("/emp/addTest", "/result/**").hasRole("EMPLOYER")
+//                        .requestMatchers("/candidate/submitTest").hasRole("CANDIDATE")
                         .anyRequest().authenticated())
                 .httpBasic(h -> h.disable())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -58,7 +59,8 @@ public class SecurityConfig {
             "/api/v1/auth/**",
             "/v3/api-docs/**",
             "/v3/api-docs.yaml",
-            "/swagger-ui.html"
+            "/swagger-ui.html",
+            "/configuration/security"
     };
 
     @Bean

@@ -80,7 +80,6 @@ public class UserServiceImpl implements UserService {
         }
         if (!existingData.getIsVerify()) {
             throw new NotVerify("Not verify");
-            //return new ResponseDTO(ResponseMessage.BAD_REQUEST, ResponseMessage.NOT_VERIFY, null);
         }
         if (!passwordEncoder.matches(loginDTO.getPassword(), existingData.getPassword())) {
             throw new CredentialsAreWrongException(ResponseMessage.WRONG_CREDENTIALS);
@@ -93,7 +92,6 @@ public class UserServiceImpl implements UserService {
         data.setEmailId(existingData.getEmail());
         data.setRole(existingData.getRole().toString());
 
-        //return new ResponseDTO(response.getStatus(), response.getMessage(),data);
         return new ResponseDTO(ResponseMessage.API_SUCCESS_CODE, ResponseMessage.LOGIN_SUCCESSFULLY, data);
     }
 

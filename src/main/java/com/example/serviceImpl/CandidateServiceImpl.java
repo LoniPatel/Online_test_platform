@@ -60,13 +60,3 @@ public class CandidateServiceImpl implements CandidateService {
         return new ResponseDTO(ResponseMessage.API_SUCCESS_CODE, ResponseMessage.TEST_SUBMIT_SUCCESSFULLY, candidateTest);
     }
 }
-//for (QueAns question : questions) {
-//            if (!queAnsRepository.existsById(question.getId())) {
-//                return new ResponseDTO(ResponseMessage.BAD_REQUEST, ResponseMessage.QUESTION_NOT_FOUND, null);
-//                //throw new QuestionNotFound("Question not found with ID: " + question.getId());
-//            }
-//        }
-//        if (candidateDTO.getQueId().size() != candidateDTO.getCandidateAnswer().size()) {
-//            return new ResponseDTO(ResponseMessage.BAD_REQUEST, ResponseMessage.QUE_ANS_NOT_MATCH, null);
-//            //throw new IllegalArgumentException("The no of question and answer does not match");
-//        }

@@ -46,10 +46,6 @@ public class EmployerServiceImpl implements EmployeeService {
         Optional<User> user = userRepository.findById(testDTO.getUserId());
         if (user.isPresent() && user.get().getRole().equals(UserType.EMPLOYER)) {
 
-//            boolean textExist = testRepository.existByUserId(testDTO.getUserId());
-//            if (textExist) {
-//                throw new UserAlreadyExist(ResponseMessage.USER_ALREADY_EXIST);
-//            }
             //Save testEntity Details
             test.setUser(user.get());
             test.setName(testDTO.getName());

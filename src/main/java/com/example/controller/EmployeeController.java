@@ -17,13 +17,16 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @PreAuthorize("hasRole('ROLE_EMPLOYER')")
     @PostMapping("/addTest")
     public ResponseDTO addTest(@RequestBody TestDTO testDTO) {
         logger.info("EmployeeController : addTest");
         return employeeService.addTest(testDTO);
     }
+
+    @PreAuthorize("hasRole('ROLE_EMPLOYER')")
     @DeleteMapping("/{id}")
-    public ResponseDTO deleteTestByEmployerId(@PathVariable Integer id){
+    public ResponseDTO deleteTestByEmployerId(@PathVariable Integer id) {
         return employeeService.deleteTestByEmployer(id);
     }
 }

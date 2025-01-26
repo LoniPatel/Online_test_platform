@@ -9,10 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ResultRepository extends JpaRepository<Result, Integer> {
-//
-//    @Query("select r from Result r where r.candidateId=:id")
-//    Result findCandidateById(Integer candidateId);
 
-    @Query(value = "select * from result  where candidate_test_id=:candidateTest",nativeQuery = true)
+    @Query(value = "select * from result  where candidate_test_id=:candidateTest", nativeQuery = true)
     Optional<Result> findCandidateById(Integer candidateTest);
 }

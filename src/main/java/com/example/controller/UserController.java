@@ -1,6 +1,9 @@
 package com.example.controller;
 
-import com.example.dto.*;
+import com.example.dto.LoginDTO;
+import com.example.dto.RegisterDTO;
+import com.example.dto.ResetPasswordDTO;
+import com.example.dto.ResponseDTO;
 import com.example.service.UserService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -33,13 +36,15 @@ public class UserController {
         logger.info("UserController : LoginUser");
         return userService.loginUser(loginDTO);
     }
+
     @PostMapping("/forgetPassword")
-    public ResponseDTO forgetPassword(@RequestParam String email){
+    public ResponseDTO forgetPassword(@RequestParam String email) {
         logger.info("UserController : ForgetPassword");
         return userService.forgetPassword(email);
     }
+
     @PostMapping("/resetPassword")
-    public ResponseDTO resetPassword(@RequestBody ResetPasswordDTO resetPasswordDTO){
+    public ResponseDTO resetPassword(@RequestBody ResetPasswordDTO resetPasswordDTO) {
         logger.info("UserController : ResetPassword");
         return userService.resetPassword(resetPasswordDTO);
     }

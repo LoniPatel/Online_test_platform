@@ -37,6 +37,5 @@ public class Test {
     private Date createdDate;
 
     @ElementCollection
-    // @OneToMany(mappedBy = "test",cascade = CascadeType.ALL)
     private List<QueAns> questionsAns;
 }

@@ -15,8 +15,6 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //    @OneToOne
-//    private Test test;
     @OneToOne
     private CandidateTest candidateTest;
 
