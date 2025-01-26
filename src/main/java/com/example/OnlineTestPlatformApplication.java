@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "APIs",version = "1.0",description = "Test management"))
+@OpenAPIDefinition(info = @Info(title = "Online_test_platform",version = "1.0",description = "Test Management APIs"))
 public class OnlineTestPlatformApplication {
     public static void main(String[] args) {
         SpringApplication.run(OnlineTestPlatformApplication.class, args);
