@@ -26,4 +26,5 @@ public class ResponseMessage {
     public static final String USER_NOT_FOUND="User not found";
     public static final String RESET_PASSWORD_SUCCESSFULLY="Reset password successfully";
     public static final String OLD_PASS_NOT_MATCH="Old password is not match";
+    public static final String NO_TEST_FOUND="NO Test Found";
 }

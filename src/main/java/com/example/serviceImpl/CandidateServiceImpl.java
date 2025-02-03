@@ -17,6 +17,7 @@ import com.example.util.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,7 +33,7 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Override
     public ResponseDTO submitTest(CandidateTestDTO candidateDTO) {
-        User user = userRepository.findById(candidateDTO.getUserId()).orElseThrow(() -> new RuntimeException("User not found!!"));
+        User user = userRepository.findById(candidateDTO.getUserId()).orElseThrow(() -> new RuntimeException("User ot found"));
 
         if (!user.getRole().equals(UserType.CANDIDATE)) {
             throw new InvalidRole(ResponseMessage.UNAUTHORIZED_USER_ROLE);
@@ -55,6 +56,7 @@ public class CandidateServiceImpl implements CandidateService {
         candidateTest.setTest(test);
         candidateTest.setTestStatus("Submitted");
         candidateTest.setCandidateAnswer(candidateDTO.getCandidateAnswer());
+        candidateTest.setTestSubmittedDate(new Date());
 
         candidateTestRepository.save(candidateTest);
         return new ResponseDTO(ResponseMessage.API_SUCCESS_CODE, ResponseMessage.TEST_SUBMIT_SUCCESSFULLY, candidateTest);

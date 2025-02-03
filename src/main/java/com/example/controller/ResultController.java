@@ -21,5 +21,4 @@ public class ResultController {
     public ResponseDTO createResult(@PathVariable Integer id) {
         return resultService.testResult(id);
     }
-
 }

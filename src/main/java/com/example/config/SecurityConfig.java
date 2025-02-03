@@ -42,7 +42,8 @@ public class SecurityConfig {
         return http.csrf(c -> c.disable())
                 .cors(c -> c.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(a -> a.requestMatchers("/v2/api-docs/**", "/swagger-ui.html"
-                                , "/swagger-ui/**", "/configuration/ui", "/swagger-resources/**", "/configuration/security", "/user/**")
+                                , "/swagger-ui/**", "/configuration/ui", "/swagger-resources/**",
+                                "/configuration/security", "/user/**","/down/downloadExcel")
                         .permitAll()
                         .requestMatchers(AUTH_WISHLIST).permitAll()
 //                        .requestMatchers("/tech/addTechnology", "/tech/delete/{id}", "/admin/getAllUsers", "/admin/{id}", "/admin/delete/{id}", "/admin/candidates").hasRole("ADMIN")
