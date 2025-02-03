@@ -158,7 +158,7 @@ public class EmployerServiceImpl implements EmployeeService {
                     String technologyNames = test.getTechnologies().stream()
                             .map(Technology::getName) // Assuming Technology has a getName() method
                             .collect(Collectors.joining(", "));
-                    // List<User> candidates = candidateTestRepository.findByTestId(test.getId());
+
                     List<Result> results = resultRepository.findCandidateById(test.getId());
                     if (results.isEmpty()) {
                         Row row = sheet.createRow(currentRowNum++);
@@ -172,8 +172,7 @@ public class EmployerServiceImpl implements EmployeeService {
                     } else {
                         for (Result result : results) {
                             User candidate = result.getCandidateTest().getUser();
-//                            String testSubmittedDate = candidateTestRepository.getTestSubmittedDate() != null ?
-//                                    result.getTestSubmittedDate().toString() : "N/A";
+
                             Row row = sheet.createRow(currentRowNum++);
                             row.createCell(0).setCellValue(test.getId());
                             row.createCell(1).setCellValue(test.getName());
